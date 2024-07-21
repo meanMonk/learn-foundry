@@ -64,3 +64,28 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+
+### Storing private key to keystore instead of exposing it via .env
+
+```shell
+
+cast wallet import <account_name> --interactive
+
+# add private key
+# add password
+```
+
+### Use pk from key store while deploying via script.
+
+
+
+```shell
+forge script script/<ContractName>.s.sol --rpc-url $ANVIL_RPC_URL --account defaultKey --sender <senderAccountAddress> --broadcast -- --vvv
+
+
+# --vvv for verbosity.
+# --broadcast to broadcast the deployment
+# --account <Account name> to load the account name from keystore.
+# --sender sender account address.
+```
